@@ -30,91 +30,31 @@ Uzantılar: **Device Activity Report** (grafik/liste), **Monitor** (süre bitinc
 
 ---
 
-## Gizlilik özeti
+## Gizlilik Politikası
 
-| Veri | Nerede | Paylaşım |
-|------|--------|----------|
-| Ebeveyn parolası | Anahtarlık (hash) | Cihazda kalır |
-| Zamanlama / engel kayıtları | App Group (`UserDefaults`) | Cihazda kalır |
-| Ekran Süresi özetleri | Apple API’leri, cihazda işlenir | Bu uygulama sunucuya yüklemez |
-| İzleme (tracking) | Yok | `NSPrivacyTracking: false` |
+Bu uygulama kullanıcıdan kişisel veri toplamaz, satmaz veya üçüncü taraflarla paylaşmaz.
 
-**Tam metin:** uygulama içi **Önemli bilgilendirme** ve aşağıdaki gizlilik politikası bağlantısı.
+- Uygulama içinde zamanlama engel kayıtları tutulur.
+- Ekran Süresi özetleri Apple API’leri kullanılarak cihazda işlenir. Bu uygulama sunucuya yüklemez.
+- İzleme (tracking): Yok / `NSPrivacyTracking: false`.
 
-### Gizlilik politikası
-
-Yayın öncesi gerçek bir HTTPS sayfası yayınlayın ve şu dosyada aynı adresi kullanın:
-
-- Kod: `AileKalkani/AppLegalInfo.swift` → `privacyPolicyURLString`  
-- App Store Connect → **Gizlilik Politikası URL’si**
-
-**Şablon / taslak adres (değiştirin):**  
-`https://example.com/aile-kalkani/gizlilik`
-
-Politikada en az şunlar yer almalıdır: hangi verilerin işlendiği, cihazda saklama, sunucu olmaması, Ekran Süresi’nin Apple tarafından işlenmesi, ebeveyn/çocuk rolü, iletişim.
+Gizlilik soruları için: [gunonur@gmail.com](mailto:gunonur@gmail.com)
 
 ---
 
 ## Destek
 
-| | |
-|---|---|
-| **E-posta** | `destek@example.com` — yayın öncesi `AppLegalInfo.swift` içinde güncelleyin |
-| **Uygulama içi** | Ayarlar → Uygulama hakkında → Destek |
-
-App Store Connect’teki **Destek URL’si** bu kanalla tutarlı olmalıdır.
+Destek soruları için: [gunonur@gmail.com](mailto:gunonur@gmail.com)
 
 ---
 
 ## Lisans ve telif
 
+- Onur Gün: [gunonur@gmail.com](mailto:gunonur@gmail.com)
 - **Aile Kalkanı** telif hakkı ile korunur; kullanım App Store lisans koşulları ve uygulama içi feragatname ile sınırlıdır.  
-- Kaynak kodu bu depoda özel mülkiyettir; izinsiz kopyalama veya dağıtım yasaktır (açık kaynak lisansı eklenmedikçe).  
+- Kaynak kodu özel mülkiyettir; izinsiz kopyalama veya dağıtım yasaktır (açık kaynak lisansı eklenmedikçe).  
 - Apple, iPhone, iPad, iOS, Ekran Süresi ve ilgili adlar **Apple Inc.** ticari markalarıdır.
 
 Uygulama “olduğu gibi” sunulur; belirli bir sonuç garanti edilmez. Hukuki sorular için yerel uzmana danışın.
 
 ---
-
-## Geliştirme
-
-### Gereksinimler
-
-- macOS, Xcode  
-- [XcodeGen](https://github.com/yonaskolb/XcodeGen)  
-- Ücretli Apple Developer hesabı (Aile Denetimleri testi için)
-
-### Derleme
-
-```bash
-xcodegen generate
-open AileKalkani.xcodeproj
-```
-
-Simülatörde Aile Denetimleri ve web raporları sınırlıdır; **gerçek cihaz** önerilir.
-
-### Proje yapısı (kısa)
-
-- `AileKalkani/` — ana uygulama (SwiftUI)  
-- `ReportExtension/` — kullanım raporu uzantısı  
-- `MonitorExtension/` — zamanlama sonu  
-- `Shared/` — ortak depolar ve sabitler  
-- `project.yml` — XcodeGen tanımı  
-- `AppStore/AppStoreConnect.md` — mağaza metinleri (TR/EN)  
-- `DEPLOY.md` — App Store dağıtım rehberi (Türkçe)
-
----
-
-## App Store dağıtımı
-
-Ayrıntılı adımlar: **[DEPLOY.md](DEPLOY.md)**  
-Mağaza metinleri ve anahtar kelimeler: **[AppStore/AppStoreConnect.md](AppStore/AppStoreConnect.md)**
-
-Family Controls **dağıtım onayı:**  
-https://developer.apple.com/contact/request/family-controls-distribution
-
----
-
-## Sürüm
-
-`MARKETING_VERSION` / build: `project.yml` (ör. 1.0 / 1). Uygulama içi sürüm: **Ayarlar** alt bilgisi veya **Uygulama hakkında**.
